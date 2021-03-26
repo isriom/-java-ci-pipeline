@@ -7,3 +7,9 @@ jobs:
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - ant compile
       - ant jar
+    - stage: Maven init
+      script:
+      - ant clean
+      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - mvn compile
+      - mvn jar
