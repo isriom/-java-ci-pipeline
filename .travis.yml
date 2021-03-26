@@ -6,4 +6,3 @@ jobs:
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - mvn compile
       - mvn package
-      - mvn deploy
