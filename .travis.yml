@@ -1,15 +1,8 @@
 language: java
 jobs:
   include:
-    - stage: init
-      script:
-      - ant clean
-      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-      - ant compile
-      - ant jar
     - stage: Maven init
       script:
-
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - mvn compile
       - mvn package
