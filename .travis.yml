@@ -1,1 +1,11 @@
 language: java
+install: ant deps
+ant test
+jobs:
+  include:
+    - stage: init
+      script:
+      - ant clean
+      - ant compile
+    - stage: jar
+      script: ant jar
