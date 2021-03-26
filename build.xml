@@ -2,6 +2,7 @@
     <property name="build.dir" value="ant-build" />
     <property name="lib.dir" value="lib" />
     <property name="app.name" value="Calculator.jar"/>
+    <property name="test.dir" value="scr/test"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
@@ -22,5 +23,17 @@
                 <attribute name="Main-Class" value="Calculator.Calculator"/>
             </manifest>
         </jar>
+    </target>
+
+    <target name="junit" depends="jar">
+        <junit printsummary="yes">
+            <classpath>
+                <path refid="classpath"/>
+            </classpath>
+
+            <batchtest fork="yes">
+                <fileset dir="${test.dir}" includes="**/*.java"/>
+            </batchtest>
+        </junit>
     </target>
 </project>
