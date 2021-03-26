@@ -9,7 +9,8 @@ jobs:
       - ant jar
     - stage: Maven init
       script:
-      - ant clean
+
       - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - mvn compile
-      - mvn jar
+      - mvn package
+      - mvn deploy
