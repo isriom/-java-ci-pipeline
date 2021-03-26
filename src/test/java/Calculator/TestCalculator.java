@@ -12,6 +12,7 @@ public class TestCalculator{
     void test_Suma(){
         assertEquals(2, Calculator.add(1,1));
         assertEquals(2, Calculator.add(3,-1));
+
     }
     @Test
     void test_Divide(){

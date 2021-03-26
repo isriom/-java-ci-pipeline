@@ -28,15 +28,9 @@
 
     <target name="junit" depends="jar">
         <junit printsummary="yes" haltonfailure="no">
-            <classpath>
-                <path refid="classpath"/>
-
-            </classpath>
             <classpath location="lib/junit-jupiter-api-5.8.0-M1.jar" />
 
-            <batchtest fork="yes">
-                <fileset dir="${test.dir}" includes="**/*.java"/>
-            </batchtest>
+            <test name="Calculator.TestCalculator"/>
         </junit>
     </target>
 </project>
