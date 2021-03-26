@@ -1,0 +1,26 @@
+<project>
+    <property name="build.dir" value="ant-build" />
+    <property name="lib.dir" value="lib" />
+    <property name="app.name" value="Calculator.jar"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="src/main" destdir="${build.dir}/classes" classpathref="classpath"/>
+    </target>
+
+    <target name="jar">
+        <jar destfile="${build.dir}/${app.name}" basedir="${build.dir}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Calculator.Calculator"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
