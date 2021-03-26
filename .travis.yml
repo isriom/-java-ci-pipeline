@@ -5,5 +5,6 @@ jobs:
       script:
       - ant clean
       - ant compile
+      - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - stage: jar
       script: ant jar
