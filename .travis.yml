@@ -8,5 +8,5 @@ jobs:
       - mvn package
     - stage: ant init
       script:
-        -ant jar
-        -ant test
+      - ant jar
+      - ant test
