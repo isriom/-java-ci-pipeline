@@ -7,5 +7,6 @@ jobs:
       - mvn compile
       - mvn package
     - stage: ant init
-      -ant jar
-      -ant test
+      script:
+        -ant jar
+        -ant test
