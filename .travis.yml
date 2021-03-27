@@ -8,5 +8,9 @@ jobs:
       - mvn package
     - stage: ant init
       script:
+      - ant clean
+      - ant init
+      - ant compile
+      - ant compile-test
       - ant jar
       - ant test
