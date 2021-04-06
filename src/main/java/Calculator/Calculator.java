@@ -15,6 +15,7 @@ public class Calculator {
             switch (operator){
                 case "stop":
                     return;
+
                 case "add":
                     System.out.print("input number 1\n");
                     num1 =input.nextDouble();
