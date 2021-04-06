@@ -10,13 +10,6 @@
     <path id="compilepath">
         <fileset dir="${build.dir}/classes" includes="**/*.jar"/>
     </path>
-    <path id="junit.platform.libs.classpath">
-        <fileset dir="${basedir}/lib/junit-platform/" includes="*.jar"/>
-    </path>
-
-    <path id="junit.engine.jupiter.classpath">
-        <fileset dir="${basedir}/lib/jupiter/" includes="*.jar"/>
-    </path>
 
 
     <target name="init">
@@ -31,9 +24,17 @@
         <mkdir dir="${build.dir}/classes"/>
         <mkdir dir="lib"/>
         <javac srcdir="src/main" destdir="${build.dir}/classes" classpathref="classpath"/>
+        <javac srcdir="src/test"
+               destdir="${build.dir}/classes" classpathref="classpath">
+
+            <classpath location="lib/hamcrest-library-1.3.jar"/>
+            <classpath location="lib/hamcrest-core-1.3.jar"/>
+            <classpath location="lib/junit.jar" />
+        </javac>
     </target>
 
-    <target name="jar">
+    <target name="jar" depends="compile">
+
         <jar destfile="${build.dir}/${app.name}" basedir="${build.dir}/classes">
             <manifest>
                 <attribute name="Main-Class" value="Calculator.Calculator"/>
@@ -41,40 +42,23 @@
         </jar>
     </target>
 
-<!--    <target name="junit" depends="jar">-->
-<!--        <junit printsummary="yes" haltonfailure="true">-->
-<!--            <classpath location="lib/hamcrest-library-1.3.jar"/>-->
-<!--            <classpath location="lib/hamcrest-core-1.3.jar"/>-->
-<!--            <classpath location="lib/junit.jar" />-->
 
-<!--            <classpath>-->
-<!--                <path refid="classpath"/>-->
-<!--                <pathelement location="${build.dir}"/>-->
-<!--            </classpath>-->
+    <target name="junit" depends="jar">
 
-<!--            <test name="Calculator.TestCalculator"/>-->
-<!--        </junit>-->
-<!--    </target>-->
+        <junit printsummary="yes" haltonfailure="False" Fork="True">
+            <classpath location="lib/hamcrest-library-1.3.jar"/>
+            <classpath location="lib/hamcrest-core-1.3.jar"/>
+            <classpath location="lib/junit.jar" />
 
+            <classpath>
+                <path refid="classpath"/>
+                <pathelement location="${build.dir}/classes"/>
+            </classpath>
 
-
-
-
-    <target name="compile-test" depends="init">
-        <mkdir dir="${build.dir}/classes"/>
-        <javac srcdir="src/test"
-               destdir="${build.dir}/classes">
-            <!-- our tests only need JUnit Jupiter engine
-            libraries in our compile classpath for the tests -->
-            <classpath refid="junit.engine.jupiter.classpath"/>
-        </javac>
-    </target>
-
-    <target name="test" depends="compile-test">
-        <junitlauncher>
-            <classpath refid="compilepath"/>
-            <test name="Calculator.TestCalculator"/>
-        </junitlauncher>
+            <test name="Calculator.TestCalculator"  outfile="result">
+                <formatter type="plain"/>
+            </test>
+        </junit>
     </target>
 
 

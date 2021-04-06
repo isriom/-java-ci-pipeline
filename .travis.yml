@@ -11,6 +11,5 @@ jobs:
       - ant clean
       - ant init
       - ant compile
-      - ant compile-test
       - ant jar
       - ant test
