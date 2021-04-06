@@ -12,4 +12,4 @@ jobs:
       - ant init
       - ant compile
       - ant jar
-      - ant test
+      - ant junit
