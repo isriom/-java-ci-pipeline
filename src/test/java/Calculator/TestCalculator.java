@@ -11,6 +11,7 @@ public class TestCalculator extends TestCase{
         assertEquals(2.0, Calculator.add(1,1));
         assertEquals(2.0, Calculator.add(3,-1));
 
+
     }
 
     public void test_Divide(){
