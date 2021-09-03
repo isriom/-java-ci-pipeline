@@ -42,6 +42,10 @@
           <option name="url" value="https://github.com/JustinFB18/Chat-Service" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/geogardow/Tarea-1.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\2001i\Desktop\Asistencias\Segundo semestre 2021\Tarea extraclase 1" />
