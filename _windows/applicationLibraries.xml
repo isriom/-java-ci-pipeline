@@ -21,6 +21,17 @@
       <JAVADOC />
       <SOURCES />
     </library>
+    <library name="JavaFx">
+      <CLASSES>
+        <root url="file://C:/ubuntus/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://C:/ubuntus/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+      </SOURCES>
+      <jarDirectory url="file://C:/ubuntus/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" />
+      <jarDirectory url="file://C:/ubuntus/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
+    </library>
     <library name="log4j-api-2.13.3">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.13.3/log4j-api-2.13.3.jar!/" />
